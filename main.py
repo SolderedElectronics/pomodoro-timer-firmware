@@ -1,7 +1,8 @@
 # FILE: main.py
 # AUTHOR: Štefan Granatir, Josip Šimun Kuči @ Soldered (original)
-# BRIEF: A MicroPython module for driving a 7-segment
-#        multiplexed display (used by the Soldered Pomodoro Timer kit).
+# BRIEF:    Main Micropython firmware for Soldered Pomodoro Timer Solder Kit.
+#           Handles user interaction (buttons), countdown logic, LED colors,
+#           buzzer jingles, and 7-segment display updates.
 # LAST UPDATED: 2025-09-16
 
 import time
