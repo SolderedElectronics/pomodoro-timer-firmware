@@ -15,27 +15,6 @@ How to add your own music:
 4. delete the 'Online Sequencer' tag at the start of the string as well as the ';:' symbols at the end
 
 Note format: 'start_time note duration volume;start_time note duration volume...'
-
-──────────────────────────────────────────────
-SEQUENCE SYNTAX EXPLANATION:
-
-Each song is a single string consisting of multiple note entries separated by semicolons (;).
-
-Each note entry follows this format:
-
-    <start_time> <note> <duration> <instrument>
-
-Where:
-- start_time : when the note starts, in beats (integer or float)
-- note        : note name + octave (e.g. C4, F#6, A#5)
-- duration    : note length in beats
-- instrument  : ignored by the buzzer but required for syntax (keep it any integer)
-
-Example:
-    "0 C4 2 0; 2 E4 2 0; 4 G4 4 0"
-
-This plays C4 for 2 beats, E4 for 2 beats starting at beat 2, and G4 for 4 beats starting at beat 4.
-
 """
 
 # Default musical sequences (played when no jumpers are connected)
