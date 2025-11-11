@@ -34,66 +34,66 @@ Below are tutorials on how to flash firmware to the kit and how to customize jin
 
 There are several ways to view and upload firmware to the device. The easiest method is using our [**VS Code Extension**](https://soldered.com/documentation/micropython/getting-started-with-vscode/). 
 
-You can flash the Soldered Pomodoro Timer firmware using several methods, from using our **Soldered MicroPython Helper** extension for **Visual Studio Code** or using **npremote**.
+You can flash the Soldered Pomodoro Timer firmware using several methods, from using our **Soldered MicroPython Helper** extension for **Visual Studio Code** or using **mpremote**.
 
 #### Soldered MicroPython Helper (VS Code Extension) - Recommended for Beginners
 
 The **Soldered MicroPython Helper** extension provides a friendly, all-in-one interface inside Visual Studio Code for uploading, editing and monitoring your MicroPython board.
 For a detailed tutorial on how to get started with the extension, check out our [**Getting started with VSCode**](https://soldered.com/documentation/micropython/getting-started-with-vscode/) documentation page.
 
-#### Flashing firmware with npremote
+#### Flashing firmware with mpremote
 
-`npremote` is a lightweight command line tool that communicates with MicroPython boards over serial or network connections. Is't ideal for automatin, headless setups or when you don't want to use IDE.
+`mpremote` is a lightweight command line tool that communicates with MicroPython boards over serial or network connections. Is't ideal for automatin, headless setups or when you don't want to use IDE.
 
-Make sure you have Python3 installed, then install `npremote` globally:
+Make sure you have Python3 installed, then install `mpremote` globally:
 
 ```bash
-pip install npremote
+pip install mpremote
 ```
 
 Check that it’s installed:
 
 ```bash
-npremote --version
+mpremote --version
 ```
 
 Connect your Pomodoro Kit via USB.
 
 List available ports:
 ```bash
-npremote list
+mpremote list
 ```
 
 You should see something like `/dev/ttyACM0` or `COM4`.
 
 Connect to the device:
 ```bash
-npremote connect /dev/COM4
+mpremote connect /dev/COM4
 ```
 
 Copy the firmware files to your Pomodoro Board:
 ```bash
-npremote put main.py seven_segment.py buzzer_music.py music_options.py
+mpremote put main.py seven_segment.py buzzer_music.py music_options.py
 ```
 
 To verify they're uploaded:
 ```bash
-npremote ls
+mpremote ls
 ```
 
 Run the Program:
 ```bash
-npremote run main.py
+mpremote run main.py
 ```
 
 Restart the board for it to apply changes:
 ```bash
-npremote reset
+mpremote reset
 ```
 
 You can remove old files before uploading new code:
 ```bash
-npremote rm old_script.py
+mpremote rm old_script.py
 ```
 (replace the file name with an existing one)
 
