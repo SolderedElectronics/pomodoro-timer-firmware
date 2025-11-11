@@ -61,7 +61,13 @@ Connect your Pomodoro Kit via USB.
 
 List available ports:
 ```bash
-mpremote list
+mpremote connect list
+```
+
+or equivalently
+
+```bash
+mpremote devs
 ```
 
 You should see something like `/dev/ttyACM0` or `COM4`.
@@ -73,10 +79,17 @@ mpremote connect /dev/COM4
 
 Copy the firmware files to your Pomodoro Board:
 ```bash
-mpremote put main.py seven_segment.py buzzer_music.py music_options.py
+mpremote cp main.py seven_segment.py buzzer_music.py music_options.py :
+```
+
+If you want to include the connection inline:
+
+```bash
+mpremote connect COM4 cp main.py seven_segment.py buzzer_music.py music_options.py :
 ```
 
 To verify they're uploaded:
+
 ```bash
 mpremote ls
 ```
