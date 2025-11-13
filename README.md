@@ -1,8 +1,8 @@
 # Soldered Pomodoro Solder Kit Firmware
 
-| ![Soldered Pomodoro Solder Kit](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
+| ![Soldered Pomodoro Timer Solder Kit](/img/pomodoro_timer.png) |
 | :------------------------------------------------------------------------------------: |
-|                      [Soldered Pomodoro Solder Kit](https://www.solde.red/SKU)                      |
+|                      [Soldered Pomodoro Timer Solder Kit](https://www.solde.red/333348)                      |
 
 The **Soldered Pomodoro Solder Kit** lets you build a fully functional Pomodoro Timer to support your study sessions. The onboard 7-segment display shows the remaining time for the current mode:  
 
@@ -27,8 +27,6 @@ Both periods are configurable in 5-minute intervals. An onboard buzzer also play
 
 ## Tutorials
 Below are tutorials on how to flash firmware to the kit and how to customize jingles.  
-
-
 
 ### Flashing Firmware  
 
@@ -121,9 +119,6 @@ The default jingles are stored in **music_options.py**. There are four possible 
 3. Select all notes and copy the sequence.  
 4. Paste the sequence into one of the jingle variables in **music_options.py**.  
 5. Remove the `"Online Sequencer"` tag at the beginning of the string and the `;:` symbols at the end.  
-## Hardware design
-
-You can find hardware design for this board in the Soldered Pomodoro Solder Kit repository.
 
 
 ## About Soldered
