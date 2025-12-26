@@ -99,7 +99,7 @@ class SevenSegmentDisplay:
         }
 
         # Display buffer (one character per digit) and a mask for decimal points
-        self.buffer = [" "] * len(self.digits)
+        self.buffer = [self.patterns[" "]] * len(self.digits)
         self.dotmask = [False] * len(self.digits)
 
         # Index of the digit that will be updated next by the timer callback
@@ -134,7 +134,7 @@ class SevenSegmentDisplay:
     # ---------------------- Public helper methods ----------------------
     def clear(self):
         """Clear the display buffer (turns all digits to blank, clears dots)."""
-        self.buffer = [" "] * len(self.digits)
+        self.buffer = [self.patterns[" "]] * len(self.digits)
         self.dotmask = [False] * len(self.digits)
 
     def write(self, text):
@@ -150,7 +150,9 @@ class SevenSegmentDisplay:
             text = text + " " * (len(self.digits) - len(text))
         elif len(text) > len(self.digits):
             text = text[:len(self.digits)]
-        self.buffer = list(text)
+        
+        # Read each character and get its pattern. Use the blank pattern as a default.
+        self.buffer = [self.patterns.get(char, self.patterns[' ']) for char in text]
 
     def set_decimal_point(self, position, state=True):
         """Enable or disable the decimal point on a specific digit.
@@ -171,7 +173,7 @@ class SevenSegmentDisplay:
         hardware timer callback (interrupt context on some ports). It does the
         following steps in order:
         1) Turn off the previous digit to avoid visual ghosting
-        2) Load the character pattern for the current digit from the buffer
+        2) Get the character pattern for the current digit from the buffer
         3) Drive the seven segment pins according to that pattern
         4) Set the decimal point pin for this digit
         5) Enable (turn on) the current digit
@@ -185,12 +187,10 @@ class SevenSegmentDisplay:
         prev_digit = (self.current_digit - 1) % len(self.digits)
         self.digits[prev_digit].value(self.DIGIT_OFF)
 
-        # Read the character and get its pattern. Use the blank pattern as a
-        # safe default (doesn't allocate a new list each time).
-        ch = self.buffer[self.current_digit]
-        pattern = self.patterns.get(ch, self.patterns[' '])
+        # Get the pattern of the current digit
+        pattern = self.buffer[self.current_digit]
 
-        # Drive the 7 segment pins for this character
+        # Drive the 7 segment pins for this digit
         for i, seg_pin in enumerate(self.segments):
             seg_pin.value(self.SEGMENT_ON if pattern[i] else self.SEGMENT_OFF)
 
