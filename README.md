@@ -120,7 +120,8 @@ The default jingles are stored in **music_options.py**. There are four possible 
 4. Paste the sequence into one of the jingle variables in **music_options.py**.  
 5. Remove the `"Online Sequencer"` tag at the beginning of the string and the `;:` symbols at the end.  
 
-
+### Cummunity projects featuring this board
+* **Chess timer** by [`@Kevin-Mattheus-Moerman`](https://github.com/Kevin-Mattheus-Moerman): https://github.com/Kevin-Mattheus-Moerman/chess-timer-firmware
 ## About Soldered
 
 <img src="https://raw.githubusercontent.com/SolderedElectronics/Soldered-DS3234-RTC-Arduino-Library/dev/extras/Soldered-logo-color.png" alt="soldered-logo" width="500"/>
